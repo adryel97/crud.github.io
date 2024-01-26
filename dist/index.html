@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#EBDDFD",
+                100: "#D7BCFB",
+                200: "#AF78F7",
+                300: "#8A3AF3",
+                400: "#650DD9",
+                500: "#460996",
+                600: "#380778",
+                700: "#2B055B",
+                800: "#1B033A",
+                900: "#0D021D",
+                950: "#07010E"
+              },
+            }
+          }
+        }
+      }
+    </script>
+    
+      <script type="module" crossorigin src="/assets/index-5PXzZIej.js"></script>
+    </head>
+  <body x-data="crudApp()" class="bg-brand-800 py-5">
+    <div class="max-w-xl mx-auto">
+      <div class="p-6 bg-brand-700 border border-brand-500 rounded-lg bg">
+          <form @submit.prevent="addContact">
+            <h1 class="font-bold text-white text-xl mb-5">Criar contato</h1>
+            <div class="grid lg:grid-cols-2 gap-3">
+              <div>
+                <input placeholder="Nome completo" class="w-full text-white rounded-lg bg-brand-800 border border-brand-500 text-white focus:ring-brand-300 focus:border-brand-300 placeholder:text-white" type="text" id="name" x-model="newContact.name" required>
+              </div> 
+              <div>
+                <input class="w-full text-white rounded-lg bg-brand-800 border border-brand-500 text-white focus:ring-brand-300 focus:border-brand-300 placeholder:text-white" type="date" id="birthdate" x-model="newContact.birthdate" required>
+              </div>
+              <div>
+                <input placeholder="Numero de telefone" class="w-full text-white rounded-lg bg-brand-800 border border-brand-500 text-white focus:ring-brand-300 focus:border-brand-300 placeholder:text-white" type="tel" id="phone" x-model="newContact.phone" required>
+              </div>
+              <div>
+                <input placeholder="E-mail" class="w-full text-white rounded-lg bg-brand-800 border border-brand-500 text-white focus:ring-brand-300 focus:border-brand-300 placeholder:text-white" type="email" id="email" x-model="newContact.email" required>
+              </div>
+            </div>
+
+            <div>
+              <button type="submit" class="py-2.5 font-bold hover:bg-brand-500 px-5 rounded-lg bg-brand-400 text-white mt-5">Adicionar Contato </button>
+            </div>
+        </form>
+      </div>
+
+
+<div class="p-6 bg-brand-700 border border-brand-500 rounded-lg mt-5">
+ <div class="flow-root">
+      <ul role="list" class="divide-y divide-brand-200 dark:divide-brand-300">
+        <template x-for="(contact, index) in contacts">
+          <li class="py-3 sm:py-4">
+              <div class="flex items-center">
+                  <div class="flex-1 min-w-0 ms-4">
+                      <p x-text="contact.name" class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                          
+                      </p>
+                      <p x-text="contact.birthdate" class="mb-3 text-sm text-gray-500 truncate dark:text-gray-400">
+                          
+                      </p>
+                      <p  x-text="contact.phone" class="mb-3 text-sm text-gray-500 truncate dark:text-gray-400">
+                          
+                      </p>
+                      <p   x-text="contact.email" class="mb-3 text-sm text-gray-500 truncate dark:text-gray-400">
+                          
+                      </p>
+                  </div>
+                  <div class="inline-flex items-center">
+                    <button @click="removeContact(index)" class="bg-red-500 text-white py-1.5 border-none px-5 rounded-lg"><span class="font-bold">Remover</span> <i class="ri-delete-bin-7-line"></i></button>
+                  </div>
+              </div>
+          </li>
+        </template>
+      </ul>
+ </div>
+</div>
+          <!-- Lista de Contatos -->
+          <ul>
+          
+              <li >
+                  <span ></span>
+                  <span ></span>
+                  <span></span>
+                  <span ></span>
+                  
+              </li>
+            
+          </ul>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  </body>
+</html>
